@@ -14,6 +14,12 @@ intent; the chosen platform adapter must supply its actual security/runtime mode
 | Platform adapter architecture | [Mermaid](06-architecture.mmd) | [SVG](06-architecture.svg) |
 | Optional migration | [Mermaid](07-optional-migration.mmd) | [SVG](07-optional-migration.svg) |
 
+Navigation includes every enabled edge tab, the To-do task drawer, shared journal
+date pages, Today's habit checklist/monthly history and the current media shelf.
+The architecture map treats versioned per-user backend configuration as product
+data; updates preserve unknown keys and sibling settings. These are requirements
+for the generated app, not claims that this recipe runs those flows itself.
+
 ![Preference-led onboarding](01-onboarding.svg)
 
 The data map includes optional entities. Do not create unselected tables simply

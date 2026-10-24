@@ -42,11 +42,18 @@ For one portable text attachment, use [RECIPE.md](RECIPE.md); images remain sepa
 | Modules | Tasks, action queue, projects, resources, habits, journal, fitness, media, nutrition |
 | Look | Ocean, Memphis, quiet paper, or your own original cover |
 | Experience | Calm mode, comfortable/compact lists, rearrange/resize, keyboard navigation |
+| Personal pages | One-date journal pages and filtered notebooks, Today's habit checklist and monthly history, current media shelf |
 | Ownership | Private solo use, selected shared workspaces, role-based access |
 | Starting data | Empty by default; optional migration only when requested |
 
 Only selected modules should be built. No journaling, health tracking, accounts,
 integrations, or analytics are quietly added on your behalf.
+
+Selected Tasks include a side To-do tab and an editable detail drawer that moves
+to the next task after a successful Done save. Home and Settings stay together,
+and all enabled sections remain visible on the binder edge. Runtime theme,
+layout, tabs and notebook choices belong in per-user backend records, with
+version upgrades that preserve saved configuration.
 
 ## What's in the kit
 

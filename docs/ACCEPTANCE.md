@@ -20,6 +20,10 @@ evidence; a code diff alone is not a browser test.
 - [ ] Clicked removes the intended action; actual Undo restores it within the agreed window.
 - [ ] Undo test waits for save completion and verifies the actual Undo action, not a manual uncheck.
 - [ ] Done/reopen rules match the brief and preserve or clear history as agreed.
+- [ ] Task drawer exposes useful editable fields, previous/next controls, native keyboard/focus behavior and clear source context.
+- [ ] Ordinary field edits save explicitly; Done saves pending fields plus completion metadata atomically, then advances through the current ordered queue only after success.
+- [ ] Last-task behavior is clear; failed completion stays on the same task with its draft and retry available.
+- [ ] Closing or manually navigating protects unsaved edits; busy saves prevent duplicate submissions and accidental close.
 - [ ] Due-today, overdue, on-hold, no-date and timezone-midnight edge cases pass.
 - [ ] Failed and repeated writes cannot leave false optimistic state or duplicate effects.
 
@@ -28,13 +32,23 @@ evidence; a code diff alone is not a browser test.
 - [ ] Folder drill-down, breadcrumbs, search, sort, archive behavior and cycle rejection work.
 - [ ] Resource collections, multi-membership, compact list and Unfiled retain all records.
 - [ ] Habits have dated, idempotent check-ins and tested scheduled/skip/missing-day rules.
+- [ ] Today's habit checklist and monthly history agree after save/reload; quick actions and historical corrections use the same evidence.
 - [ ] Journal and personal logs remain private in shared configurations.
+- [ ] Journal shows all matching entries for one local date on one page; mini-calendar dates reflect actual filtered entries and are keyboard navigable.
+- [ ] Several compact notebook-cover choices and explicit tag-filtered sections persist; two sections can view the same journal without copying records.
+- [ ] Removing a journal section or archiving a volume leaves entries available in another view and after reload.
+- [ ] Current media shelf follows agreed active statuses; planned and finished items remain accessible in the library.
 - [ ] Progress, totals, streaks and activity use actual evidence, never sync time or fabricated history.
 
 ## Appearance and persistence
 
 - [ ] Light/dark cover previews affect the whole theme; Save persists and Cancel restores.
 - [ ] Calm, density, mode and per-user layouts survive reload without crossing users.
+- [ ] Theme, layout, tabs and notebook settings read back from backend preference records and survive a fresh browser session; browser storage alone is insufficient.
+- [ ] A previous-version configuration upgrades and reloads without resetting custom tab IDs/order, covers, notebook filters or existing values.
+- [ ] Unknown/future or invalid configuration exposes recovery and does not silently overwrite stored choices with defaults.
+- [ ] Independent settings saves preserve unknown keys and sibling notebook/volume settings; stale responses cannot restore an older snapshot over a newer revision.
+- [ ] Home and Settings are grouped; the side To-do tab opens the scoped task list; every enabled section is reachable directly on the binder edge.
 - [ ] Pointer and keyboard rearranging work; resize is bounded; Cancel discards changes.
 - [ ] Slow preference readback cannot overwrite recent local choices.
 - [ ] Primary viewport has no overlap, clipping or horizontal overflow.

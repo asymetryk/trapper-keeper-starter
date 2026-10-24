@@ -3,6 +3,13 @@
 Checked October 23, 2026. This validates the **recipe and reference assets**, not
 an app that a future agent generates for a new user.
 
+The recipe now specifies backend configuration upgrades and field-scoped saves,
+all enabled binder-edge tabs, the task drawer/Done queue, unified dated journal
+pages and filtered sections, Today's habits/monthly history, and a current media
+shelf. Updated Mermaid sources and SVGs express these contracts. Existing concept
+images and the short demo remain visual references; they do not demonstrate every
+new requirement. No generated app deployment or account mutation is implied.
+
 - Ten deterministic profile-contract tests pass, covering invalid choices,
   scope selection, missing modules, habit history, undefined streak policy,
   timezone errors, custom tabs and platform/device mismatch.

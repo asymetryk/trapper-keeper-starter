@@ -25,8 +25,12 @@ delivered file; use the host's supported React/Interface SDK imports.
 Configure the element's Data panel: selected tables, fields, filters and sorting.
 Missing access must show a setup/permission explanation rather than an invented
 zero count. Inline actions and record-detail editing are separate settings;
-test both. Enable intended editable fields in appropriate detail pages for
-Tasks, Projects, Areas, Resources and Folders. Keep computed fields read-only.
+test both. Implement the task drawer contract in the custom element using actual
+supported record updates. Done saves pending edits and completion fields together,
+then advances only on success. If that surface cannot support the requested flow,
+explain the limit and agree on a specific alternative; a standard detail page is
+not proof of custom-drawer behavior. Enable useful editable fields in appropriate
+detail pages for other selected entities. Keep computed fields read-only.
 
 ## Limits to discuss
 
@@ -40,14 +44,24 @@ need host filters/field limits.
 
 ## Data and validation
 
-- Use linked records for relationships and one per-user/context preference row.
+- Use linked records for relationships and one authenticated per-user/context
+  preference row containing versioned configuration. Include tabs/order, covers,
+  layouts, mode and notebook filters as selected. Cache locally only as an optimization.
+- Upgrade existing configuration records without resetting user choices; test
+  a previous-version fixture through readback and reload.
+- Keep journal sections as filtered views over the same native journal records.
+  One displayed date page may contain several entries. Store covers/section
+  preferences separately; removing navigation never deletes journal entries.
+- Use the same dated habit check-in records for Today's checklist and monthly
+  history; use actual media statuses for the current shelf when selected.
 - Enforce writes through explicit field allowlists and actual SDK permissions.
 - If habits are selected, store dated check-ins. Airtable does not provide a
   relational unique index; define a retry-safe check-in writer if uniqueness is required.
 - Inspect generated automations before enabling them. External sending is off
   unless selected and explicitly authorized.
 - Test in the actual custom-element preview: record expansion, editable details,
-  permission-denied actions, themes, layout persistence, date boundaries and counts.
+  permission-denied actions, Done auto-advance, themes, backend configuration
+  persistence/upgrades, all enabled edge tabs, selected personal flows, date boundaries and counts.
 - Save a recoverable version and publish only when the user authorizes it.
 
 No native sync is required for greenfield. If the user later requests integration,

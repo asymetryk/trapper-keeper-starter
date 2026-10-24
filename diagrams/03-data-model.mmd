@@ -20,12 +20,23 @@ erDiagram
   }
   PREFERENCE {
     string user_context UK
+    int schema_version
+    string revision
     string theme
     string versioned_layout
+    string section_order
+    string notebook_filters_and_covers
   }
   HABIT_CHECKIN {
     string habit_local_date UK
     date local_date
     string outcome
     datetime recorded_at
+  }
+  JOURNAL_ENTRY {
+    string id PK
+    string private_owner
+    date local_date
+    string content
+    string tags
   }

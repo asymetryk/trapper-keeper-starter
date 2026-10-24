@@ -4,17 +4,25 @@ flowchart LR
   Mode --> L[Life]
   Mode --> U[All authorized records]
   W --> Daily[Daily task pockets]
-  W --> Tabs[Chosen divider tabs]
+  Home --> Tools[Home + Settings group]
+  Tools --> Config[Cover - layout - tabs - notebook filters]
+  Mode --> Tabs[All enabled tabs on binder edge]
+  Tabs --> Todo[Side To-do list]
+  Todo --> TaskDetail[Useful editable task drawer]
   L --> Personal[Selected personal modules]
   U --> Focus[Consolidated priorities and dated activity]
   Tabs --> Project[Project or Area]
   Project --> Folder[Folder drill-down]
-  Folder --> Detail[Useful editable details]
-  Daily --> Detail
-  Focus --> Detail
+  Folder --> Detail[Useful editable record details]
+  Daily --> TaskDetail
+  Focus --> TaskDetail
   Tabs --> Resource[Resource library]
   Resource --> Collection[Collections or Unfiled]
   Collection --> Detail
-  Personal --> Detail
-  Home --> Theme[Cover preview - Save or Cancel]
-  Home --> Layout[Per-user rearrange and resize]
+  Personal --> Journal[One journal - page per local date]
+  Journal --> Calendar[Mini calendar marks actual entry dates]
+  Journal --> Notebooks[Covered notebooks and tag-filtered sections]
+  Notebooks --> Remove[Remove navigation only - keep entries]
+  Personal --> Habits[Today's checklist + monthly history]
+  Personal --> Media[Current media shelf + full library]
+  Config --> Persist[Per-user backend records - preserve saved choices]

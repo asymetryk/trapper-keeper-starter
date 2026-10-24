@@ -24,10 +24,24 @@ UUIDs or another stable key policy; foreign keys, uniqueness, indexes, timestamp
 and local calendar dates must match the domain contracts. Add only selected
 modules, with no import jobs or source-system assumptions.
 
+Store runtime configuration in an authenticated per-user/context preference
+table, with a schema version, tab identities/order, layouts, covers and selected
+notebook filters. Local storage is an optional cache. Add explicit migrations
+that preserve stored choices; do not reset configuration when new keys arrive
+or when a read fails. Keep schema migration and runtime-config versioning distinct.
+
+Journal sections filter the same private JournalEntry records. Group entries
+into one displayed page per owner/local date and derive mini-calendar dates from
+the active filter. Removing a tab or archiving a volume updates preferences only.
+Use the same dated habit check-ins for Today's checklist and monthly history,
+and real active media statuses for the current shelf when those modules are selected.
+
 Daily habit check-ins use a unique `(habit_id, local_date)` key. Use a transactional
 upsert or equivalent idempotent operation. Different schedules may require an
 occurrence key and explicit period aggregation. Completion/reopen writes should
-be transactional and concurrent updates should have a conflict policy.
+be transactional and concurrent updates should have a conflict policy. A Done
+request includes pending editable fields and completion metadata in that same
+transaction. Advance the task drawer only after success; retain failed drafts.
 
 ## Identity and private data
 

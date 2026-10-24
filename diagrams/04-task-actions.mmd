@@ -8,10 +8,22 @@ flowchart TD
   Save -->|Yes| Undo[Offer five-second Undo]
   Undo -->|Used| Reset[Set Clicked false and read back]
   Undo -->|Expires| Keep[Keep saved Clicked value]
-  Card --> Details[Open useful editable details]
+  Card --> Details[Open editable task drawer]
+  Details --> Fields[Title - due - priority - notes - URL - permitted links]
+  Fields --> Explicit[Explicit Save changes]
+  Explicit --> FieldResult{Write succeeds?}
+  FieldResult -->|No| Draft[Keep task and draft - show retry]
+  FieldResult -->|Yes| Saved[Read back saved fields]
+  Details --> Navigate[Previous - next - close]
+  Navigate --> Guard[Protect unsaved edits - save / discard / stay]
   Details --> Status[Change status]
   Status --> Done{Done?}
-  Done -->|Yes| Complete[Atomically set agreed completion fields]
+  Done -->|Yes| Complete[Atomically save pending edits + completion fields]
   Done -->|Reopen| Reopen[Apply agreed reopen and history policy]
-  Complete --> Verify[Read back actual persisted result]
-  Reopen --> Verify
+  Reopen --> Verify[Read back persisted reopening]
+  Complete --> Result{Completion succeeds?}
+  Result -->|No| Draft
+  Result -->|Yes| CompletionReadback[Verify saved completion]
+  CompletionReadback --> Queue{Next task in current ordered queue?}
+  Queue -->|Yes| Next[Open next task]
+  Queue -->|No| Finished[Close drawer or show finished state]
