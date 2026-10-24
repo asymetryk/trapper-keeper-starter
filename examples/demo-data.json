@@ -1,0 +1,18 @@
+{
+  "fictional": true,
+  "referenceDay": "2030-04-16",
+  "tasks": [
+    {"id": "demo-task-001", "scope": "work", "title": "Sketch landing page", "status": "To do", "priority": "High", "dueDate": "2030-04-16", "projectId": "demo-project-001"},
+    {"id": "demo-task-002", "scope": "work", "title": "Review project outline", "status": "In progress", "priority": "Medium", "dueDate": "2030-04-15", "actionUrl": "https://example.com/review", "clicked": false},
+    {"id": "demo-task-003", "scope": "life", "title": "Plan a weekend walk", "status": "To do", "priority": "Low", "dueDate": "2030-04-20"},
+    {"id": "demo-task-004", "scope": "life", "title": "Water the plants", "status": "To do", "priority": "Low", "dueDate": null},
+    {"id": "demo-task-005", "scope": "unclassified", "title": "Sort a new idea", "status": "To do", "priority": "Low", "dueDate": null}
+  ],
+  "projects": [{"id": "demo-project-001", "scope": "work", "name": "Community workshop", "description": "Plan a fictional creative workshop."}],
+  "resources": [
+    {"id": "demo-resource-001", "scope": "work", "title": "Design reading list", "url": "https://example.com/reading", "collections": ["Reading"]},
+    {"id": "demo-resource-002", "scope": "work", "title": "A useful idea", "url": null, "collections": []}
+  ],
+  "habits": [{"id": "demo-habit-001", "title": "Read", "schedule": "daily", "timeZone": "UTC"}],
+  "habitCheckIns": [{"id": "demo-checkin-001", "habitId": "demo-habit-001", "localDate": "2030-04-16", "outcome": "Done"}]
+}

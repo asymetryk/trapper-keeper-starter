@@ -1,0 +1,31 @@
+erDiagram
+  USER ||--o{ PREFERENCE : owns
+  USER ||--o{ TASK : owns
+  AREA ||--o{ PROJECT : contains
+  PROJECT o|--o{ TASK : groups
+  FOLDER o|--o{ TASK : files
+  FOLDER o|--o{ FOLDER : nests
+  RESOURCE ||--o{ RESOURCE_COLLECTION : has
+  COLLECTION ||--o{ RESOURCE_COLLECTION : groups
+  USER ||--o{ HABIT : owns
+  HABIT ||--o{ HABIT_CHECKIN : records
+  USER ||--o{ JOURNAL_ENTRY : owns
+  TASK {
+    string id PK
+    string owner_id
+    string scope
+    string status
+    date due_date
+    datetime completed_at
+  }
+  PREFERENCE {
+    string user_context UK
+    string theme
+    string versioned_layout
+  }
+  HABIT_CHECKIN {
+    string habit_local_date UK
+    date local_date
+    string outcome
+    datetime recorded_at
+  }

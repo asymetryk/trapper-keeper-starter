@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "appName": "My Work Binder",
+  "platform": "airtable",
+  "devices": ["desktop-web"],
+  "modes": ["work"],
+  "showAll": false,
+  "modules": ["tasks", "projects", "resources"],
+  "organization": "lists",
+  "customTabs": [],
+  "appearance": {"theme": "quiet-paper", "darkTheme": "", "calm": true, "density": "compact", "rearrange": true, "resize": false},
+  "privacy": {"use": "solo", "personalDefault": "private", "sharedWork": false},
+  "tasks": {"statuses": ["To do", "In progress", "Done", "On hold"], "reopen": "clear-current-completion", "recurrence": "off"},
+  "habits": {"tracking": "disabled", "schedule": "off", "skipPolicy": "not-applicable", "showStreaks": false},
+  "locale": {"timeZone": "UTC", "dateLocale": "en-GB", "weekStart": "monday"},
+  "dataStart": "greenfield",
+  "hosting": {"preview": "native-platform", "publicDeploymentAuthorized": false, "paidProvisioningAuthorized": false}
+}

@@ -1,0 +1,17 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {validateProfile} from '../scripts/profile-validation.mjs';
+const schema=JSON.parse(await readFile(new URL('../schemas/preferences.schema.json',import.meta.url),'utf8'));
+const fixture=JSON.parse(await readFile(new URL('../examples/preferences.json',import.meta.url),'utf8'));
+const change=patch=>({...structuredClone(fixture),...patch});
+test('fictional greenfield profile is ready',()=>assert.deepEqual(validateProfile(fixture,schema),[]));
+test('unknown settings cannot silently become preferences',()=>assert.ok(validateProfile(change({unknown:true}),schema).length));
+test('All requires both scopes',()=>assert.ok(validateProfile(change({modes:['work']}),schema).length));
+test('habits require dated check-ins',()=>assert.ok(validateProfile(change({habits:{...fixture.habits,tracking:'disabled'}}),schema).length));
+test('streaks require an agreed policy',()=>assert.ok(validateProfile(change({habits:{...fixture.habits,showStreaks:true,skipPolicy:'undecided'}}),schema).length));
+test('invalid timezone fails rather than silently becoming local time',()=>assert.ok(validateProfile(change({locale:{...fixture.locale,timeZone:'Not/AZone'}}),schema).length));
+test('custom tabs need labels',()=>assert.ok(validateProfile(change({organization:'custom'}),schema).length));
+test('mobile Airtable custom-element constraint must be resolved',()=>assert.ok(validateProfile(change({platform:'airtable'}),schema).length));
+test('action queue cannot exist without tasks',()=>assert.ok(validateProfile(change({modules:['action-queue']}),schema).length));
+test('unselected habits cannot manufacture a tracker',()=>assert.ok(validateProfile(change({modules:['tasks']}),schema).length));

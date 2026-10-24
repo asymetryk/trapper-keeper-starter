@@ -1,0 +1,20 @@
+flowchart LR
+  Home[Binder Home] --> Mode{Selected scope}
+  Mode --> W[Work]
+  Mode --> L[Life]
+  Mode --> U[All authorized records]
+  W --> Daily[Daily task pockets]
+  W --> Tabs[Chosen divider tabs]
+  L --> Personal[Selected personal modules]
+  U --> Focus[Consolidated priorities and dated activity]
+  Tabs --> Project[Project or Area]
+  Project --> Folder[Folder drill-down]
+  Folder --> Detail[Useful editable details]
+  Daily --> Detail
+  Focus --> Detail
+  Tabs --> Resource[Resource library]
+  Resource --> Collection[Collections or Unfiled]
+  Collection --> Detail
+  Personal --> Detail
+  Home --> Theme[Cover preview - Save or Cancel]
+  Home --> Layout[Per-user rearrange and resize]

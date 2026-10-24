@@ -1,0 +1,14 @@
+{
+  "exampleOnly": true,
+  "mode": "plan-only",
+  "sourceSystem": "example-source",
+  "destinationSystem": "chosen-stack",
+  "identityKey": ["sourceSystem", "sourceEntity", "sourceRecordId"],
+  "fieldMappings": [{"from": "example-title-field", "to": "task.title", "transform": "trim-with-original-preserved"}],
+  "scopePolicy": "explicit mapping; unknown remains unclassified",
+  "duplicatePolicy": "review-ambiguous-matches",
+  "sourceWritesAllowed": false,
+  "productionImportAuthorized": false,
+  "cutoverAuthorized": false,
+  "idMap": []
+}

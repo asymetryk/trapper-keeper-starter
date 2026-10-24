@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Trapper Keeper build preferences",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "appName", "platform", "devices", "modes", "showAll", "modules", "organization", "customTabs", "appearance", "privacy", "tasks", "habits", "locale", "dataStart", "hosting"],
+  "properties": {
+    "version": {"type": "integer", "enum": [1]},
+    "appName": {"type": "string", "minLength": 1},
+    "platform": {"type": "string", "enum": ["airtable", "cloudflare-supabase", "other", "undecided"]},
+    "platformNotes": {"type": "string"},
+    "devices": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "enum": ["desktop-web", "mobile-web", "native-mobile"]}},
+    "modes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "enum": ["work", "life"]}},
+    "showAll": {"type": "boolean"},
+    "modeLabels": {"type": "object", "additionalProperties": false, "properties": {"work": {"type": "string", "minLength": 1}, "life": {"type": "string", "minLength": 1}, "all": {"type": "string", "minLength": 1}}},
+    "modules": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "enum": ["tasks", "action-queue", "projects", "resources", "habits", "journal", "fitness", "media", "nutrition"]}},
+    "organization": {"type": "string", "enum": ["para", "lists", "custom"]},
+    "customTabs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "appearance": {"type": "object", "additionalProperties": false, "required": ["theme", "darkTheme", "calm", "density", "rearrange", "resize"], "properties": {
+      "theme": {"type": "string", "minLength": 1}, "darkTheme": {"type": "string"},
+      "calm": {"type": "boolean"}, "density": {"type": "string", "enum": ["comfortable", "compact"]},
+      "rearrange": {"type": "boolean"}, "resize": {"type": "boolean"}
+    }},
+    "privacy": {"type": "object", "additionalProperties": false, "required": ["use", "personalDefault", "sharedWork"], "properties": {
+      "use": {"type": "string", "enum": ["solo", "shared"]},
+      "personalDefault": {"type": "string", "enum": ["private"]}, "sharedWork": {"type": "boolean"}
+    }},
+    "tasks": {"type": "object", "additionalProperties": false, "required": ["statuses", "reopen", "recurrence"], "properties": {
+      "statuses": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+      "reopen": {"type": "string", "enum": ["clear-current-completion", "preserve-event-history"]},
+      "recurrence": {"type": "string", "enum": ["off", "new-occurrence-on-completion", "advance-instance"]}
+    }},
+    "habits": {"type": "object", "additionalProperties": false, "required": ["tracking", "schedule", "skipPolicy", "showStreaks"], "properties": {
+      "tracking": {"type": "string", "enum": ["disabled", "dated-checkins"]},
+      "schedule": {"type": "string", "enum": ["off", "daily", "selected-weekdays", "weekly-target", "custom"]},
+      "skipPolicy": {"type": "string", "enum": ["not-applicable", "breaks-streak", "neutral", "undecided"]},
+      "showStreaks": {"type": "boolean"}
+    }},
+    "locale": {"type": "object", "additionalProperties": false, "required": ["timeZone", "dateLocale", "weekStart"], "properties": {
+      "timeZone": {"type": "string", "minLength": 1}, "dateLocale": {"type": "string", "minLength": 2},
+      "weekStart": {"type": "string", "enum": ["monday", "sunday"]}
+    }},
+    "dataStart": {"type": "string", "enum": ["greenfield", "migration-plan"]},
+    "hosting": {"type": "object", "additionalProperties": false, "required": ["preview", "publicDeploymentAuthorized", "paidProvisioningAuthorized"], "properties": {
+      "preview": {"type": "string", "enum": ["native-platform", "remote-preview", "user-approved-environment", "undecided"]},
+      "publicDeploymentAuthorized": {"type": "boolean"}, "paidProvisioningAuthorized": {"type": "boolean"}
+    }}
+  }
+}

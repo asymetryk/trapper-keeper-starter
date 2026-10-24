@@ -1,0 +1,17 @@
+flowchart TD
+  Card[Task card] --> Open[Open valid action URL]
+  Open --> Unchanged[Leave Clicked unchanged]
+  Card --> Click[Mark Clicked]
+  Click --> Lock[Permission check and save lock]
+  Lock --> Save{Write succeeds?}
+  Save -->|No| Restore[Restore prior state and show error]
+  Save -->|Yes| Undo[Offer five-second Undo]
+  Undo -->|Used| Reset[Set Clicked false and read back]
+  Undo -->|Expires| Keep[Keep saved Clicked value]
+  Card --> Details[Open useful editable details]
+  Details --> Status[Change status]
+  Status --> Done{Done?}
+  Done -->|Yes| Complete[Atomically set agreed completion fields]
+  Done -->|Reopen| Reopen[Apply agreed reopen and history policy]
+  Complete --> Verify[Read back actual persisted result]
+  Reopen --> Verify

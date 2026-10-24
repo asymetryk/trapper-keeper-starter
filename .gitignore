@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+graft/
+.env
+.env.*
+!.env.example
+user-preferences.json
+schema-map.local.json
+imports/
+private/
+output/
+*.log

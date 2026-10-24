@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "appName": "My Trapper Keeper",
+  "platform": "cloudflare-supabase",
+  "devices": ["desktop-web", "mobile-web"],
+  "modes": ["work", "life"],
+  "showAll": true,
+  "modules": ["tasks", "action-queue", "projects", "resources", "habits"],
+  "organization": "para",
+  "customTabs": [],
+  "appearance": {"theme": "ocean", "darkTheme": "galaxy", "calm": false, "density": "comfortable", "rearrange": true, "resize": true},
+  "privacy": {"use": "solo", "personalDefault": "private", "sharedWork": false},
+  "tasks": {"statuses": ["To do", "In progress", "Done", "On hold"], "reopen": "clear-current-completion", "recurrence": "off"},
+  "habits": {"tracking": "dated-checkins", "schedule": "daily", "skipPolicy": "neutral", "showStreaks": false},
+  "locale": {"timeZone": "UTC", "dateLocale": "en-US", "weekStart": "monday"},
+  "dataStart": "greenfield",
+  "hosting": {"preview": "remote-preview", "publicDeploymentAuthorized": false, "paidProvisioningAuthorized": false}
+}

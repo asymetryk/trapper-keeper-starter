@@ -1,0 +1,15 @@
+flowchart TD
+  Fresh[Fresh build works independently] --> Request{Existing data requested?}
+  Request -->|No| Empty[Keep empty production store]
+  Request -->|Yes| Inventory[Inventory sources and uncertain consumers]
+  Inventory --> Backup[Verify recoverable backups]
+  Backup --> Map[Explicit fields - scope - dates - IDs - privacy]
+  Map --> Dry[Staged idempotent dry run]
+  Dry --> Reconcile{Counts - values - links - files - access pass?}
+  Reconcile -->|No| Map
+  Reconcile -->|Yes| Approve{User approves concrete cutover?}
+  Approve -->|Not yet| Preserve[Preserve originals and keep preview]
+  Approve -->|Yes| Cutover[One writer and controlled final delta]
+  Cutover --> Verify[Provider readback and user acceptance]
+  Verify --> Rollback[Keep rollback map and retention plan]
+  Rollback --> Retire[Retire only confirmed redundant dependencies]

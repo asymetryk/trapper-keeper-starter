@@ -1,0 +1,14 @@
+flowchart TB
+  P[User preferences and build brief] --> UI[Binder UI and domain rules]
+  UI --> Contract[Storage and permission adapter]
+  Contract --> Choice{Selected stack}
+  Choice --> A[Airtable Interface SDK and native identity]
+  A --> AT[Fresh selected tables and detail pages]
+  Choice --> Web[Standalone React web app]
+  Web --> CF[Cloudflare assets and optional API]
+  Web --> S[Supabase Auth and scoped data API]
+  CF --> S
+  S --> DB[Postgres with ownership policies]
+  Choice --> Other[Equivalent adapter for another stack]
+  Secrets[Privileged secrets remain server-side] -.-> CF
+  Auth[All views obey authenticated permissions] -.-> Contract

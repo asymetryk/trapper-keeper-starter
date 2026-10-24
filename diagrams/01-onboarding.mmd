@@ -1,0 +1,19 @@
+flowchart TD
+  Start[Open recipe in preferred agent] --> Ask[Short preference interview]
+  Ask --> Stack{Choose platform and devices}
+  Stack --> A[Airtable custom element]
+  Stack --> C[Standalone web app]
+  Stack --> O[Other verified stack]
+  A --> Fit{Capabilities match needs?}
+  C --> Fit
+  O --> Fit
+  Fit -->|No| Ask
+  Fit -->|Yes| Brief[Selected modules and private build brief]
+  Brief --> Slice[One representative visual slice]
+  Slice --> Review{User approves direction?}
+  Review -->|Revise| Brief
+  Review -->|Yes| Build[Fresh schema and scoped implementation]
+  Build --> Test[Domain and actual-runtime browser checks]
+  Test --> Release{Publication authorized?}
+  Release -->|Not yet| Preview[Keep working preview]
+  Release -->|Yes| Publish[Release with evidence and rollback]

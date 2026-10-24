@@ -1,0 +1,9 @@
+{
+  "exampleOnly": true,
+  "platform": "choose-after-interview",
+  "entities": {
+    "tasks": {"table": "REPLACE_WITH_DISCOVERED_TABLE_OR_RELATION", "fields": {"id": "REPLACE_WITH_ID_FIELD", "title": "REPLACE_WITH_TITLE_FIELD", "scope": "REPLACE_WITH_SCOPE_FIELD", "status": "REPLACE_WITH_STATUS_FIELD"}},
+    "preferences": {"table": "REPLACE_WITH_PREFERENCES_TABLE", "identity": "AUTHENTICATED_USER_AND_CONTEXT"}
+  },
+  "note": "Fill in the generated private project after schema creation. Do not invent runtime IDs."
+}

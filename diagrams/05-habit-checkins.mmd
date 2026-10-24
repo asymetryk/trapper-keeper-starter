@@ -1,0 +1,12 @@
+flowchart TD
+  Habit[Habit definition and schedule] --> Day[Resolve local date in habit timezone]
+  Day --> Eligible{Scheduled period?}
+  Eligible -->|No| NoCheck[No scheduled completion expected]
+  Eligible -->|Yes| Log[Choose Done - Skipped - Unknown]
+  Log --> Upsert[Idempotent check-in by habit and local date]
+  Upsert --> Evidence[Persist actual evidence and recorded timestamp]
+  Evidence --> History[Show dated history]
+  History --> Rules{Streak rules explicitly defined?}
+  Rules -->|No| NoStreak[Show history without invented metric]
+  Rules -->|Yes| Compute[Apply schedule and skip or missing-day policy]
+  Compute --> Display[Show evidenced streak with clear meaning]
