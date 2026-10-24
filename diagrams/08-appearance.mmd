@@ -1,0 +1,23 @@
+flowchart TD
+  Settings[Settings - Appearance] --> Draft[Open draft from owned saved configuration]
+  Draft --> Presets[Choose coordinated preset]
+  Draft --> Colors[Adjust semantic colors and panel surfaces]
+  Draft --> Images[Choose picture destination]
+  Images --> Library[Authorized native or managed image library]
+  Library --> Identity[Stable owned asset reference]
+  Identity --> Options[Fit - position - strength]
+  Presets --> Preview[Live binder - drawer - settings preview]
+  Colors --> Preview
+  Options --> Preview
+  Preview --> Check{Readable actual surfaces?}
+  Check -->|Repair| Colors
+  Check -->|Save| Revision{Current revision and permissions?}
+  Revision -->|Conflict or error| Keep[Keep draft with actionable guidance]
+  Keep --> Draft
+  Revision -->|Allowed| Store[Patch Appearance only - preserve siblings]
+  Store --> Reload[Fresh session resolves current authorized image URLs]
+  Reload --> Missing{Asset available?}
+  Missing -->|Yes| Render[Render picture behind opaque reading plates]
+  Missing -->|No| Fallback[Show preset - preserve saved reference]
+  Draft --> Cancel[Cancel restores saved appearance]
+  Preview --> Calm[Calm hides pictures without deleting them]

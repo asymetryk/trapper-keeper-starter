@@ -17,7 +17,8 @@ not a mandatory long form. Ask only questions that change the selected build.
 | Recurrence | New occurrence or advance existing task? | Off unless selected |
 | Habits | Which schedules, targets, skip policy, timezone? | Dated daily check-ins; no streak until rules are defined |
 | Privacy | What can teammates see or edit? | Personal records private; explicit shared work |
-| Appearance | Original retro cover, dark/light options, density, Calm? | One light, one dark; comfortable spacing |
+| Appearance | Original retro presets, custom background/paper/card/button/callout colors, independent panel colors, personal pictures? | Preset first; offer selected customization without changing reading sizes |
+| Image library | Which destinations: cover, desk background, paper or panel texture? | Private owned assets; preview fit/position/strength; Calm hides images |
 | Layout | Reorder, resize, per-user vs shared? | Per-user widget layout; no shared record reordering |
 | Configuration | Which choices should follow the user across devices? | Backend records for theme, layout, mode, tabs and notebook preferences; migrate versions without reset |
 | Navigation | Which selected sections belong on the edge? | Every enabled tab visible, a side To-do tab for Tasks, Home + Settings grouped |

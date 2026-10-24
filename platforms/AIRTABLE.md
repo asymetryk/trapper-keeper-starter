@@ -69,3 +69,20 @@ use the optional migration playbook and verify current native-sync capabilities.
 Do not replace a requested native connection with a custom job silently.
 
 Additional reference: [Using Omni](https://support.airtable.com/articles/1744327578-using-omni-ai-in-airtable).
+
+## Optional Appearance image library
+
+Keep presets and sparse color/picture overrides in the authenticated user's
+versioned preference record. Discover a native attachment field for that user's
+image library; expose it to the element only as required. Use supported native
+record expansion/attachment editing or an authorized record link for upload,
+keeping the Appearance draft intact. Verify current SDK URL resolution against
+the actual preview; do not invent a custom uploader or embed a PAT.
+
+Store attachment IDs and display options, resolving current-user image URLs
+when rendering. Airtable download URLs expire; they are unsuitable as permanent
+preference values or public asset hosting. See the official
+[attachment URL behavior](https://support.airtable.com/articles/9671148410-airtable-attachment-url-behavior)
+and [attachment fields](https://support.airtable.com/articles/9139007724-attachment-fields-in-airtable)
+guides (checked October 24, 2026). Test upload/return, reload, denied/deleted images
+and retained settings. Airtable's own uploader and outer chrome keep native styling.

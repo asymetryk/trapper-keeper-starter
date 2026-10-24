@@ -42,7 +42,14 @@ evidence; a code diff alone is not a browser test.
 
 ## Appearance and persistence
 
-- [ ] Light/dark cover previews affect the whole theme; Save persists and Cancel restores.
+- [ ] Light/dark preset previews affect the whole theme; Save persists and Cancel restores.
+- [ ] Selected custom colors cover desk, cover, paper/rules, cards, actions, heading strips, folders and independent drawer/settings surfaces; per-tab colors stay separate.
+- [ ] Every foreground matches its actual fill, including typed Journal text, calendar dates/dots, task headers, disabled controls, habit cells and native date-picker icons. Test extreme mixed light/dark palettes visually as well as with accessibility tools.
+- [ ] Decorative chrome compacts without shrinking approved reading sizes. Ordinary long titles fit; exceptional titles, long tab lists and saved compact widgets remain usable with fixed actions.
+- [ ] Selected personal pictures upload through a supported authorized library; the appearance draft survives leaving/returning from a native uploader.
+- [ ] Cover/background/paper/panel fit, position and strength preview correctly; opaque reading plates preserve text contrast and Calm hides images without deleting them.
+- [ ] Backend settings contain stable owned asset references and display options, never file bytes or expiring URLs. Fresh-session, expired, denied and removed-image cases resolve current access or show the preset.
+- [ ] Undo, scoped/all appearance resets, save failures and observed concurrent changes retain unrelated settings and uploads; unsupported newer appearance versions are view-only.
 - [ ] Calm, density, mode and per-user layouts survive reload without crossing users.
 - [ ] Theme, layout, tabs and notebook settings read back from backend preference records and survive a fresh browser session; browser storage alone is insufficient.
 - [ ] A previous-version configuration upgrades and reloads without resetting custom tab IDs/order, covers, notebook filters or existing values.

@@ -27,6 +27,10 @@ export function validateProfile(profile,schema){
   if(profile.showAll&&profile.modes.length<2)errors.push('showAll requires two selected modes');
   if(profile.modules.includes('action-queue')&&!profile.modules.includes('tasks'))errors.push('action queue requires tasks');
   if(profile.organization==='custom'&&!profile.customTabs.length)errors.push('custom organization requires tabs');
+  const look=profile.appearance;
+  if(look.independentPanelColors&&!look.customColors)errors.push('independent panel colors require custom color controls');
+  if(look.personalImages===true&&!look.imageDestinations?.length)errors.push('personal images require at least one destination');
+  if(look.personalImages!==true&&look.imageDestinations?.length)errors.push('image destinations require personal images');
   if(profile.appearance.resize&&!profile.appearance.rearrange)errors.push('resize requires rearrange');
   if(profile.privacy.sharedWork&&profile.privacy.use==='solo')errors.push('shared work requires shared use');
   const hasHabits=profile.modules.includes('habits');

@@ -40,7 +40,7 @@ For one portable text attachment, use [RECIPE.md](RECIPE.md); images remain sepa
 | Scope | Work, Life, both, or your own names |
 | Organization | PARA, simple lists, custom tabs, or no folders |
 | Modules | Tasks, action queue, projects, resources, habits, journal, fitness, media, nutrition |
-| Look | Ocean, Memphis, quiet paper, or your own original cover |
+| Look | Retro light/dark presets, custom paper/background/card/button/callout/panel colors, or your own pictures |
 | Experience | Calm mode, comfortable/compact lists, rearrange/resize, keyboard navigation |
 | Personal pages | One-date journal pages and filtered notebooks, Today's habit checklist and monthly history, current media shelf |
 | Ownership | Private solo use, selected shared workspaces, role-based access |
@@ -52,18 +52,21 @@ integrations, or analytics are quietly added on your behalf.
 Selected Tasks include a side To-do tab and an editable detail drawer that moves
 to the next task after a successful Done save. Home and Settings stay together,
 and all enabled sections remain visible on the binder edge. Runtime theme,
-layout, tabs and notebook choices belong in per-user backend records, with
-version upgrades that preserve saved configuration.
+layout, tabs, notebook and Appearance choices belong in per-user backend records,
+with version upgrades that preserve saved configuration. Optional pictures use
+an owned library and stable asset references; text remains on readable surfaces.
+See the [Appearance contract](docs/APPEARANCE.md) and [fictional reference captures](media/README.md).
 
 ## What's in the kit
 
 - [Preference interview](docs/PREFERENCES.md) and [machine-readable profile schema](schemas/preferences.schema.json).
 - [Product requirements](docs/PRD.md), [UI design rules](docs/DESIGN.md),
-  [data model](docs/DATA_MODEL.md), and [acceptance checklist](docs/ACCEPTANCE.md).
+  [data model](docs/DATA_MODEL.md), [Appearance contract](docs/APPEARANCE.md),
+  and [acceptance checklist](docs/ACCEPTANCE.md).
 - [Platform guides](platforms/README.md) for [Airtable](platforms/AIRTABLE.md)
   and [Cloudflare + Supabase](platforms/CLOUDFLARE_SUPABASE.md).
 - [Workflow maps](diagrams/README.md): onboarding, navigation, data relationships,
-  task actions, habit check-ins, architecture, and optional migration.
+  task actions, habit check-ins, architecture, optional migration, and Appearance.
 - [Three original UI concepts](mockups/README.md), with reproducible prompts.
 - [Fictional sample preferences](examples/preferences.json),
   [sample records](examples/demo-data.json), and a [filled build brief](examples/build-brief.md).

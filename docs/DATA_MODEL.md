@@ -12,7 +12,8 @@ Do not copy another installation's IDs or prepopulate production data.
 | Folder | id, ownership, scope, name, section, parent folder/project/area, order, archived |
 | Resource | id, ownership, scope, title, url, notes, format, area links |
 | ResourceCollection | resource_id + folder/collection_id; unique pair |
-| UserPreference | authenticated user, screen/context, schema version, layout JSON, theme, Calm, density, mode, enabled sections/order, notebook filters/covers/archive preferences; unique user/context |
+| UserPreference | authenticated user, screen/context, schema version, layout JSON, theme, Calm, density, mode, enabled sections/order, notebook filters/covers/archive preferences, versioned appearance overrides and picture IDs/options; unique user/context |
+| AppearanceAsset (when selected) | stable ID, authenticated owner, provider storage reference, filename/content type; private access rules independent of current render URL |
 | Habit | id, ownership, title, active, schedule, target/unit, start date, IANA timezone |
 | HabitCheckIn | id, habit, local_date, outcome Done/Skipped/Unknown, amount, notes, recorded_at; unique habit/local_date for daily grain |
 | JournalEntry | id, private owner, local_date, content, optional mood/tags |
@@ -40,6 +41,22 @@ QA must use fictional preference records, not restore snapshots over real users'
 Daily check-in uniqueness is not enough for several daily occurrences: if the user
 chooses that schedule, add an occurrence/slot key and define aggregation first.
 Weekly targets likewise need a defined week boundary and eligible period.
+
+## Appearance and asset persistence
+
+Keep the build-profile choices separate from the runtime appearance document.
+Store preset identity plus sparse semantic color overrides, independent panel
+colors, and per-destination asset ID / fit / position / strength. Version this
+document; merge changed known keys while preserving siblings and future keys.
+Treat a future unsupported version as view-only. A reset removes only the scoped
+overrides and never deletes uploaded assets or other configuration.
+
+Resolve image URLs for the current authorized user at render time. An attachment
+ID or object path is durable identity; an expiring URL is not. Refresh access
+after reload/expiry and show the preset when an asset is missing, denied or
+removed. Check upload/removal authorization separately from preference saving.
+Use the same revision/conflict policy as other settings; describe observed
+preflight checks honestly rather than claiming atomic compare-and-swap.
 
 ## Domain rules
 

@@ -21,6 +21,10 @@ stack or feature set for everybody.
   No streak display; preserve actual check-in history.
 - **Look:** original Ocean light cover and Galaxy dark cover; comfortable density,
   optional Calm, keyboard/pointer rearranging and bounded resize.
+- **Appearance:** optional semantic color controls, independent drawer/settings
+  palettes and owned pictures for cover/background/paper/panels. Reading sizes
+  stay fixed when compacting chrome. Runtime settings store asset IDs/options;
+  private managed storage resolves current authorized URLs.
 - **Preferences:** backend records isolated by authenticated user/context;
   configuration upgrades preserve saved tabs, cover and layout; shared ordering omitted.
 - **Starting data:** empty production store; approved fictional fixtures for testing.

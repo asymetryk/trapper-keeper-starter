@@ -16,8 +16,8 @@ for(const file of files){
   const path=resolve(dirname(file),decodeURIComponent(link.split('#')[0]));assert.ok(path.startsWith(root+'/'),`Link escapes kit: ${file}`);await stat(path);links++;
  }
 }
-assert.equal(files.filter(f=>f.endsWith('.mmd')).length,7);
+assert.equal(files.filter(f=>f.endsWith('.mmd')).length,8);
 for(const mmd of files.filter(f=>f.endsWith('.mmd'))){const svg=await readFile(mmd.replace(/\.mmd$/,'.svg'),'utf8');assert.match(svg,/<svg/);assert.doesNotMatch(svg,/<script\b/i);}
 for(const image of ['work','life','preferences']){const png=await readFile(`mockups/${image}-concept.png`);assert.equal(png.subarray(1,4).toString(),'PNG');assert.ok(png.length>10000);}
-const recipe=await readFile('RECIPE.md','utf8');for(const marker of ['START_HERE.md','docs/PRD.md','docs/MIGRATION.md','platforms/AIRTABLE.md','platforms/CLOUDFLARE_SUPABASE.md'])assert.ok(recipe.includes(`Source: ${marker}`));
-console.log(`PASS: ${profiles} profiles, ${links} local links, JSON, 7 rendered diagrams, 3 concept images, portable recipe`);
+const recipe=await readFile('RECIPE.md','utf8');for(const marker of ['START_HERE.md','docs/PRD.md','docs/MIGRATION.md','docs/APPEARANCE.md','platforms/AIRTABLE.md','platforms/CLOUDFLARE_SUPABASE.md'])assert.ok(recipe.includes(`Source: ${marker}`));
+console.log(`PASS: ${profiles} profiles, ${links} local links, JSON, 8 rendered diagrams, 3 concept images, portable recipe`);

@@ -1,0 +1,66 @@
+{
+  "fixture": true,
+  "currentComponents": true,
+  "viewport": {
+    "width": 1920,
+    "height": 1080,
+    "dpr": 1,
+    "zoom": 1
+  },
+  "audio": false,
+  "targetSeconds": 6.5,
+  "states": [
+    {
+      "name": "home-neon",
+      "ms": 4,
+      "theme": "memphis",
+      "dialog": 0,
+      "projects": null
+    },
+    {
+      "name": "projects-neon",
+      "ms": 1164,
+      "theme": "memphis",
+      "dialog": 0,
+      "projects": "page"
+    },
+    {
+      "name": "appearance-neon",
+      "ms": 2370,
+      "theme": "memphis",
+      "dialog": 1,
+      "projects": "page"
+    },
+    {
+      "name": "galaxy-preview",
+      "ms": 3751,
+      "theme": "galaxy",
+      "dialog": 1,
+      "projects": "page"
+    },
+    {
+      "name": "projects-galaxy",
+      "ms": 5118,
+      "theme": "galaxy",
+      "dialog": 0,
+      "projects": "page"
+    }
+  ],
+  "savedTheme": "galaxy",
+  "pageErrors": [],
+  "offOriginRequests": [],
+  "titleMetrics": {
+    "font": "23px",
+    "client": 140,
+    "scroll": 140
+  },
+  "encoded": {
+    "duration": 6.5,
+    "bytes": 815703,
+    "width": 1920,
+    "height": 1080,
+    "codec": "H.264",
+    "fps": "30/1",
+    "audio": false
+  }
+}

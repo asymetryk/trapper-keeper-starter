@@ -68,3 +68,19 @@ Test the app in an actual preview deployment, including auth redirects, persiste
 edits, reload, access denial, mobile browser layout if selected, and optional
 realtime updates. Client-side success alone is not durable database readback.
 Use `docs/ACCEPTANCE.md`; document rollback for app and schema changes before release.
+
+## Optional Appearance asset storage
+
+Add owned image assets only when selected. Keep preset/scoped-color settings
+and stable object references plus fit/position/strength in per-user versioned
+preferences. Resolve authorized render URLs per session; never persist signed
+URLs or file bytes there. Upload/removal and preference editing need their own
+access checks. Avoid a public bucket merely to simplify background pictures.
+
+Supabase private buckets apply storage RLS and support authenticated downloads
+or time-limited signed URLs. Test ownership denial with another user for both
+file access and deletion. See [bucket access models](https://supabase.com/docs/guides/storage/buckets/fundamentals)
+and [storage access control](https://supabase.com/docs/guides/storage/security/access-control)
+(checked October 24, 2026). If choosing another asset store, verify equivalent
+ownership and URL-refresh behavior before implementing it. Do not provision
+additional paid services merely because pictures were requested.

@@ -14,7 +14,7 @@ Use `mockups/` as concepts and let the user choose or change the direction.
 - Show all enabled sections along that edge, including To-do for selected Tasks.
   Use a keyboard-accessible scrollable rail or adaptive spacing when needed;
   do not replace the remaining tabs with an arbitrary More cutoff.
-- Put Home and Settings together. Keep cover, rearrange and section tools inside
+- Put Home and Settings together. Keep Appearance, rearrange and section tools inside
   a coherent Settings surface, with clear saved/unsaved states.
 - Mode switch above the page content; hide it for a one-mode build.
 - Cards for glanceable work; compact lists for dense references. Detail views
@@ -30,8 +30,12 @@ Suggested original concepts: Ocean (teal/coral), Memphis (bright geometric),
 Galaxy (deep night colors), Quiet Paper (minimal). No licensed character art,
 vendor logos or copied commercial binder illustrations are needed.
 
-Cover selection previews on hover **and keyboard focus**, saves explicitly, and
-Cancel/Escape restores the saved theme. Calm reduces decoration and motion without
+Settings → Appearance starts with selectable presets, then Colors and optional
+Pictures. Selecting a preset previews the whole binder; pointer and keyboard
+selection must agree. Hover/focus preview is optional, never the only way to
+apply a preset. Save is explicit; Cancel/Escape restores the saved appearance.
+Provide Undo, scoped resets, retained failed-save drafts and conflict guidance.
+See [Appearance contract](APPEARANCE.md) for color scopes and image ownership. Calm reduces decoration and motion without
 removing useful controls. Respect reduced-motion preferences. Avoid gratuitous
 entrance animation, perpetual sparkle, flashing surfaces, or layout-shifting effects.
 
@@ -47,17 +51,29 @@ source/ownership context and previous/next controls. Done saves pending edits an
 advances after successful persistence; errors stay beside the save action with the
 draft intact. Close and manual navigation offer save/discard/stay for unsaved edits.
 Keep the drawer and its footer usable while notes scroll, and restore trigger focus.
+Grow the task title on open, edit and width/font changes so ordinary long titles
+are fully readable; bound exceptional lengths without shrinking text. Balance
+Status/Priority and Due/Link fields; keep effective-date context concise and
+put longer explanations in a disclosure. Retain the actual failure cause beside
+the draft instead of a duplicate detached alert.
 
 Journal is a notebook surface rather than a list of unrelated detail pop-ups:
 one displayed page per date, a mini calendar marking dates with entries, and
 consistent notebook covers. Topic/tag sections filter the same journal records.
 Explain that removing a section changes navigation only. Today's habits use a
-compact checklist; the monthly grid carries history. A media shelf highlights
+compact checklist; two ordinary rows should fit at the selected default widget
+height. Saved smaller sizes and long labels scroll without losing controls.
+The monthly grid carries history. A media shelf highlights
 current items without hiding access to the full library.
 
 Rearrange mode is visually distinct: move handle, moving-card preview, drop
 target, bounded resize, Save and Cancel. A drag reorders layout; filing a resource
 changes collection membership. Do not conflate the two actions.
+
+Keep Settings headers/actions fixed around one scrolling body. Long tab lists,
+validation errors and the final row must remain reachable. Decorative binder
+geometry can be reduced independently of font sizes; browser zoom is not the
+layout solution.
 
 ## Review before propagation
 

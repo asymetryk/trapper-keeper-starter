@@ -19,3 +19,8 @@ flowchart TB
   Secrets[Privileged secrets remain server-side] -.-> CF
   Auth[All views obey authenticated permissions] -.-> Contract
   Auth -.-> Config
+  Contract --> Assets[Authorized native or managed asset library]
+  Assets --> IDs[Store asset IDs and display options]
+  IDs --> Store
+  Assets --> Resolve[Resolve current-user image URL at render time]
+  Resolve --> UI

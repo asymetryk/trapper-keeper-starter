@@ -17,6 +17,8 @@
 - **Journal date pages / mini calendar / notebook filters and covers / remove-tab policy:**
 - **Media current-shelf statuses and full-library access:**
 - **Cover / light and dark themes / Calm / density:**
+- **Appearance presets / custom color scopes / independent panels / reading sizes:**
+- **Personal image destinations / owned library / upload path / stable asset references:**
 - **Per-user layout and shared-order policy:**
 - **Backend configuration records / ownership / version upgrades without reset:**
 - **Timezone / date format / week start:**

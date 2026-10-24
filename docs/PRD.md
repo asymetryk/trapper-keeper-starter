@@ -105,6 +105,17 @@ field draft. Failed saves retain the current task and draft with retry guidance.
 Close and manual navigation protect unsaved changes; saving prevents accidental
 double submission or closing mid-write. Restore focus when the drawer closes.
 
+## Appearance when selected
+
+Group themes and customization under Settings → Appearance. Offer coordinated
+original retro presets, optional independent color scopes and owned image
+uploads for the cover, surrounding background, paper and panel textures.
+Keep typography at the user-approved sizes while compacting decorative chrome.
+Text contrast follows the actual surface, including fields, selected controls,
+date icons and dialogs. Save/reload preserves all prior configuration; Cancel
+discards only the open draft. Use [Appearance](APPEARANCE.md) as the detailed
+contract, with native Airtable or authenticated managed-storage adapters.
+
 ## Personal pages when selected
 
 Journal tabs are views of one journal, not separate copies or tables per notebook.

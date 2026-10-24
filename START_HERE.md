@@ -20,7 +20,8 @@ build and ask these five short questions, with suggested options:
 4. **How do you organize?** PARA / simple lists / custom tabs / help me choose.
    What are the two or three things you want to see first each day?
 5. **What should it feel like?** Playful retro / calm paper / something else;
-   compact or roomy. Default empty, or do you want a migration plan for existing data?
+   compact or roomy. Presets only, or custom colors and your own pictures too?
+   Default empty, or do you want a migration plan for existing data?
 
 Allow “use sensible defaults.” Only ask conditional follow-ups that affect the
 chosen modules: timezone/week start, task status semantics, recurrence, habit
@@ -53,6 +54,9 @@ checklist, not a giant questionnaire to dump into the first response.
 - Habit history requires dated check-ins; never invent streaks from a checkbox.
 - Recurring tasks and habit definitions are different jobs. Define each explicitly.
 - Theme and layout preferences are per user; shared task order is a separate choice.
+- Put presets, scoped colors and optional pictures in Settings → Appearance.
+  Preserve reading sizes while compacting decorative geometry. Persist owned
+  asset IDs/options, never temporary image URLs; keep opaque reading surfaces.
 - Persist runtime configuration in backend records keyed to authenticated users;
   migrate older versions without resetting theme, layouts, tabs or notebooks.
 - Group Home and Settings; show every enabled binder-edge tab, including To-do

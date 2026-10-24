@@ -1,5 +1,7 @@
 erDiagram
   USER ||--o{ PREFERENCE : owns
+  USER ||--o{ APPEARANCE_ASSET : owns
+  PREFERENCE }o--o{ APPEARANCE_ASSET : references
   USER ||--o{ TASK : owns
   AREA ||--o{ PROJECT : contains
   PROJECT o|--o{ TASK : groups
@@ -26,6 +28,7 @@ erDiagram
     string versioned_layout
     string section_order
     string notebook_filters_and_covers
+    string appearance_colors_and_asset_options
   }
   HABIT_CHECKIN {
     string habit_local_date UK

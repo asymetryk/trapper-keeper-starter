@@ -15,3 +15,9 @@ test('custom tabs need labels',()=>assert.ok(validateProfile(change({organizatio
 test('mobile Airtable custom-element constraint must be resolved',()=>assert.ok(validateProfile(change({platform:'airtable'}),schema).length));
 test('action queue cannot exist without tasks',()=>assert.ok(validateProfile(change({modules:['action-queue']}),schema).length));
 test('unselected habits cannot manufacture a tracker',()=>assert.ok(validateProfile(change({modules:['tasks']}),schema).length));
+
+test('older build profiles remain valid without the optional appearance additions',()=>{const p=structuredClone(fixture);for(const k of ['customColors','independentPanelColors','personalImages','imageDestinations','preserveTypeSizes'])delete p.appearance[k];assert.deepEqual(validateProfile(p,schema),[]);});
+test('panel customization cannot promise unavailable color controls',()=>assert.ok(validateProfile(change({appearance:{...fixture.appearance,customColors:false}}),schema).length));
+test('personal images need selected destinations',()=>assert.ok(validateProfile(change({appearance:{...fixture.appearance,imageDestinations:[]}}),schema).length));
+test('image destinations need the owned image feature',()=>assert.ok(validateProfile(change({appearance:{...fixture.appearance,personalImages:false}}),schema).length));
+test('image destinations are bounded and unique',()=>{for(const imageDestinations of [['cover','cover'],['script']])assert.ok(validateProfile(change({appearance:{...fixture.appearance,imageDestinations}}),schema).length);});

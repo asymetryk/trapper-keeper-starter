@@ -29,7 +29,8 @@ build and ask these five short questions, with suggested options:
 4. **How do you organize?** PARA / simple lists / custom tabs / help me choose.
    What are the two or three things you want to see first each day?
 5. **What should it feel like?** Playful retro / calm paper / something else;
-   compact or roomy. Default empty, or do you want a migration plan for existing data?
+   compact or roomy. Presets only, or custom colors and your own pictures too?
+   Default empty, or do you want a migration plan for existing data?
 
 Allow “use sensible defaults.” Only ask conditional follow-ups that affect the
 chosen modules: timezone/week start, task status semantics, recurrence, habit
@@ -62,6 +63,9 @@ checklist, not a giant questionnaire to dump into the first response.
 - Habit history requires dated check-ins; never invent streaks from a checkbox.
 - Recurring tasks and habit definitions are different jobs. Define each explicitly.
 - Theme and layout preferences are per user; shared task order is a separate choice.
+- Put presets, scoped colors and optional pictures in Settings → Appearance.
+  Preserve reading sizes while compacting decorative geometry. Persist owned
+  asset IDs/options, never temporary image URLs; keep opaque reading surfaces.
 - Persist runtime configuration in backend records keyed to authenticated users;
   migrate older versions without resetting theme, layouts, tabs or notebooks.
 - Group Home and Settings; show every enabled binder-edge tab, including To-do
@@ -190,6 +194,17 @@ field draft. Failed saves retain the current task and draft with retry guidance.
 Close and manual navigation protect unsaved changes; saving prevents accidental
 double submission or closing mid-write. Restore focus when the drawer closes.
 
+## Appearance when selected
+
+Group themes and customization under Settings → Appearance. Offer coordinated
+original retro presets, optional independent color scopes and owned image
+uploads for the cover, surrounding background, paper and panel textures.
+Keep typography at the user-approved sizes while compacting decorative chrome.
+Text contrast follows the actual surface, including fields, selected controls,
+date icons and dialogs. Save/reload preserves all prior configuration; Cancel
+discards only the open draft. Use [Appearance](docs/APPEARANCE.md) as the detailed
+contract, with native Airtable or authenticated managed-storage adapters.
+
 ## Personal pages when selected
 
 Journal tabs are views of one journal, not separate copies or tables per notebook.
@@ -263,7 +278,8 @@ not a mandatory long form. Ask only questions that change the selected build.
 | Recurrence | New occurrence or advance existing task? | Off unless selected |
 | Habits | Which schedules, targets, skip policy, timezone? | Dated daily check-ins; no streak until rules are defined |
 | Privacy | What can teammates see or edit? | Personal records private; explicit shared work |
-| Appearance | Original retro cover, dark/light options, density, Calm? | One light, one dark; comfortable spacing |
+| Appearance | Original retro presets, custom background/paper/card/button/callout colors, independent panel colors, personal pictures? | Preset first; offer selected customization without changing reading sizes |
+| Image library | Which destinations: cover, desk background, paper or panel texture? | Private owned assets; preview fit/position/strength; Calm hides images |
 | Layout | Reorder, resize, per-user vs shared? | Per-user widget layout; no shared record reordering |
 | Configuration | Which choices should follow the user across devices? | Backend records for theme, layout, mode, tabs and notebook preferences; migrate versions without reset |
 | Navigation | Which selected sections belong on the edge? | Every enabled tab visible, a side To-do tab for Tasks, Home + Settings grouped |
@@ -315,6 +331,8 @@ from this interview file and must not depend on a browser cache for durability.
 - **Journal date pages / mini calendar / notebook filters and covers / remove-tab policy:**
 - **Media current-shelf statuses and full-library access:**
 - **Cover / light and dark themes / Calm / density:**
+- **Appearance presets / custom color scopes / independent panels / reading sizes:**
+- **Personal image destinations / owned library / upload path / stable asset references:**
 - **Per-user layout and shared-order policy:**
 - **Backend configuration records / ownership / version upgrades without reset:**
 - **Timezone / date format / week start:**
@@ -349,7 +367,7 @@ Use `mockups/` as concepts and let the user choose or change the direction.
 - Show all enabled sections along that edge, including To-do for selected Tasks.
   Use a keyboard-accessible scrollable rail or adaptive spacing when needed;
   do not replace the remaining tabs with an arbitrary More cutoff.
-- Put Home and Settings together. Keep cover, rearrange and section tools inside
+- Put Home and Settings together. Keep Appearance, rearrange and section tools inside
   a coherent Settings surface, with clear saved/unsaved states.
 - Mode switch above the page content; hide it for a one-mode build.
 - Cards for glanceable work; compact lists for dense references. Detail views
@@ -365,8 +383,12 @@ Suggested original concepts: Ocean (teal/coral), Memphis (bright geometric),
 Galaxy (deep night colors), Quiet Paper (minimal). No licensed character art,
 vendor logos or copied commercial binder illustrations are needed.
 
-Cover selection previews on hover **and keyboard focus**, saves explicitly, and
-Cancel/Escape restores the saved theme. Calm reduces decoration and motion without
+Settings → Appearance starts with selectable presets, then Colors and optional
+Pictures. Selecting a preset previews the whole binder; pointer and keyboard
+selection must agree. Hover/focus preview is optional, never the only way to
+apply a preset. Save is explicit; Cancel/Escape restores the saved appearance.
+Provide Undo, scoped resets, retained failed-save drafts and conflict guidance.
+See [Appearance contract](docs/APPEARANCE.md) for color scopes and image ownership. Calm reduces decoration and motion without
 removing useful controls. Respect reduced-motion preferences. Avoid gratuitous
 entrance animation, perpetual sparkle, flashing surfaces, or layout-shifting effects.
 
@@ -382,17 +404,29 @@ source/ownership context and previous/next controls. Done saves pending edits an
 advances after successful persistence; errors stay beside the save action with the
 draft intact. Close and manual navigation offer save/discard/stay for unsaved edits.
 Keep the drawer and its footer usable while notes scroll, and restore trigger focus.
+Grow the task title on open, edit and width/font changes so ordinary long titles
+are fully readable; bound exceptional lengths without shrinking text. Balance
+Status/Priority and Due/Link fields; keep effective-date context concise and
+put longer explanations in a disclosure. Retain the actual failure cause beside
+the draft instead of a duplicate detached alert.
 
 Journal is a notebook surface rather than a list of unrelated detail pop-ups:
 one displayed page per date, a mini calendar marking dates with entries, and
 consistent notebook covers. Topic/tag sections filter the same journal records.
 Explain that removing a section changes navigation only. Today's habits use a
-compact checklist; the monthly grid carries history. A media shelf highlights
+compact checklist; two ordinary rows should fit at the selected default widget
+height. Saved smaller sizes and long labels scroll without losing controls.
+The monthly grid carries history. A media shelf highlights
 current items without hiding access to the full library.
 
 Rearrange mode is visually distinct: move handle, moving-card preview, drop
 target, bounded resize, Save and Cancel. A drag reorders layout; filing a resource
 changes collection membership. Do not conflate the two actions.
+
+Keep Settings headers/actions fixed around one scrolling body. Long tab lists,
+validation errors and the final row must remain reachable. Decorative binder
+geometry can be reduced independently of font sizes; browser zoom is not the
+layout solution.
 
 ## Review before propagation
 
@@ -421,7 +455,8 @@ Do not copy another installation's IDs or prepopulate production data.
 | Folder | id, ownership, scope, name, section, parent folder/project/area, order, archived |
 | Resource | id, ownership, scope, title, url, notes, format, area links |
 | ResourceCollection | resource_id + folder/collection_id; unique pair |
-| UserPreference | authenticated user, screen/context, schema version, layout JSON, theme, Calm, density, mode, enabled sections/order, notebook filters/covers/archive preferences; unique user/context |
+| UserPreference | authenticated user, screen/context, schema version, layout JSON, theme, Calm, density, mode, enabled sections/order, notebook filters/covers/archive preferences, versioned appearance overrides and picture IDs/options; unique user/context |
+| AppearanceAsset (when selected) | stable ID, authenticated owner, provider storage reference, filename/content type; private access rules independent of current render URL |
 | Habit | id, ownership, title, active, schedule, target/unit, start date, IANA timezone |
 | HabitCheckIn | id, habit, local_date, outcome Done/Skipped/Unknown, amount, notes, recorded_at; unique habit/local_date for daily grain |
 | JournalEntry | id, private owner, local_date, content, optional mood/tags |
@@ -449,6 +484,22 @@ QA must use fictional preference records, not restore snapshots over real users'
 Daily check-in uniqueness is not enough for several daily occurrences: if the user
 chooses that schedule, add an occurrence/slot key and define aggregation first.
 Weekly targets likewise need a defined week boundary and eligible period.
+
+## Appearance and asset persistence
+
+Keep the build-profile choices separate from the runtime appearance document.
+Store preset identity plus sparse semantic color overrides, independent panel
+colors, and per-destination asset ID / fit / position / strength. Version this
+document; merge changed known keys while preserving siblings and future keys.
+Treat a future unsupported version as view-only. A reset removes only the scoped
+overrides and never deletes uploaded assets or other configuration.
+
+Resolve image URLs for the current authorized user at render time. An attachment
+ID or object path is durable identity; an expiring URL is not. Refresh access
+after reload/expiry and show the preset when an asset is missing, denied or
+removed. Check upload/removal authorization separately from preference saving.
+Use the same revision/conflict policy as other settings; describe observed
+preflight checks honestly rather than claiming atomic compare-and-swap.
 
 ## Domain rules
 
@@ -494,6 +545,113 @@ For a relational store, use foreign keys, uniqueness and ownership policies.
 For Airtable, use linked records, filtered views and explicit permissions; enforce
 any missing uniqueness/idempotency guarantees in an approved backend or controlled
 automation when required. Do not claim Airtable enforces a SQL-style unique constraint.
+
+
+---
+
+<!-- Source: docs/APPEARANCE.md -->
+
+# Appearance contract
+
+Use this when customization is selected in the build brief. It describes a
+portable behavior contract; it does not assume a particular base, backend,
+existing data source or connected application.
+
+## Presets first, then individual choices
+
+Group **Presets / Colors / Pictures** inside Settings → Appearance. Offer a small
+coordinated light/dark set with original geometric artwork. The reference UI has
+thirteen presets, including Laser Grid, Mall Pastels, Composition Club and
+Sunset Surf. A generated app can use the user's chosen names and count.
+
+Let presets coordinate the whole stationery system. Custom color groups cover:
+
+- Surrounding background, cover, edge and decorative highlights.
+- Paper background, rules and margin line.
+- Card/field fill, secondary fill and borders.
+- Main action buttons, heading/callout strips and folder colors.
+- Independent task drawer and configuration-panel backgrounds, fields and buttons.
+
+Per-tab color choices remain separate. Keep error/overdue and completion cues
+meaningful; retain labels/icons so color is never the only signal. Derive primary,
+secondary, link and focus colors separately for paper, cards, soft surfaces and
+panels. Native date controls also follow the actual field fill, not just the
+preset's name. Optional manual text colors need a readable contrast check and
+an automatic repair action before saving.
+
+Preview the actual binder, task drawer and settings examples. Provide Undo,
+section resets and an all-appearance reset. Selecting a preset can clear color
+overrides while preserving pictures; state that behavior. Save commits only
+Appearance. Cancel/Escape discards only the open draft. Failed saves retain the
+draft and underlying actionable cause. A stale observed revision must not erase
+another settings change. A newer unsupported configuration remains view-only.
+
+## Personal pictures when selected
+
+Provide an authorized image library using the selected platform's supported
+upload path. Do not invent an SDK upload API or place privileged keys in a browser.
+An Airtable build can open its native attachment editor and keep the Appearance
+draft mounted while the user uploads and returns. A standalone app can use the
+chosen authenticated asset store. Upload and preference-save permissions are
+separate; explain unavailable actions instead of displaying fake controls.
+
+Destinations are cover, surrounding background, paper texture and panel texture.
+Offer fill/contain, anchor position and strength; repeat is useful for textures.
+Keep solid reading plates over decorative layers, including coherent panel body,
+header and footer surfaces. Changing picture strength never fades text. Calm
+hides saved pictures and decoration without deleting them. Missing, denied,
+removed or expired assets fall back to the preset surface.
+
+Persist a stable owned asset reference and fit/position/strength only. Resolve
+current authorized URLs during rendering and after a fresh session. Do not save
+file bytes, temporary URLs or access tokens in preference JSON. Removing a
+picture from a destination does not delete it from the library; library removal
+is a separate supported action. Resetting appearance never removes task records,
+notebooks, other settings or uploaded assets.
+
+A conceptual runtime fragment, not a live provider configuration:
+
+```json
+{
+  "version": 1,
+  "preset": "ocean",
+  "colors": {"paper": "#fff8ed", "action": "#165b69"},
+  "panels": {"paper": "#19283d", "surface": "#fff8ed"},
+  "pictures": {
+    "cover": {"assetId": "sample-cover", "fit": "cover", "position": "center", "strength": 100}
+  }
+}
+```
+
+The build-profile booleans select which controls to generate. This runtime
+fragment is a separate versioned document in that generated app's private store.
+
+## Polish and verification
+
+Reduce decorative cover/ring/padding geometry independently of reading sizes.
+Keep the chosen base, task title, field and journal writing sizes unchanged while
+adjusting density. Test at the agreed viewport and 100% browser zoom.
+
+Ordinary long task titles grow on open, input and width/font changes. Bound
+exceptional text with scrolling, not smaller type. Keep Status/Priority and
+Due/Link balanced, with concise effective-date context and expandable help.
+
+Settings headers/actions stay visible around one scroller. Long tab lists, the
+last custom section, save errors and validation remain usable. At the default
+Today's habit widget height, show at least two ordinary rows and retain controls;
+respect explicitly saved compact sizes and scroll longer names/lists.
+
+Check Classic/light, Galaxy/dark and an extreme mixed palette across dashboards,
+Resources, drawer, Journal editor/calendar, Habits and every settings screen.
+Inspect typed text and selected/disabled controls as well as empty fields.
+Accessibility scanners can miss contrast failures behind image layers; inspect
+actual rendered screenshots. Test a fresh-session upload/readback, failed save,
+concurrent edit, denied/deleted asset, Calm, resets and sibling-setting retention.
+
+See [Acceptance](docs/ACCEPTANCE.md), [Airtable](platforms/AIRTABLE.md) and
+[Cloudflare + Supabase](platforms/CLOUDFLARE_SUPABASE.md) for selected-runtime
+verification. Reference captures use fictional records and browser-local storage;
+they do not prove a generated app's backend or authorization.
 
 
 ---
@@ -595,6 +753,23 @@ Do not replace a requested native connection with a custom job silently.
 
 Additional reference: [Using Omni](https://support.airtable.com/articles/1744327578-using-omni-ai-in-airtable).
 
+## Optional Appearance image library
+
+Keep presets and sparse color/picture overrides in the authenticated user's
+versioned preference record. Discover a native attachment field for that user's
+image library; expose it to the element only as required. Use supported native
+record expansion/attachment editing or an authorized record link for upload,
+keeping the Appearance draft intact. Verify current SDK URL resolution against
+the actual preview; do not invent a custom uploader or embed a PAT.
+
+Store attachment IDs and display options, resolving current-user image URLs
+when rendering. Airtable download URLs expire; they are unsuitable as permanent
+preference values or public asset hosting. See the official
+[attachment URL behavior](https://support.airtable.com/articles/9671148410-airtable-attachment-url-behavior)
+and [attachment fields](https://support.airtable.com/articles/9139007724-attachment-fields-in-airtable)
+guides (checked October 24, 2026). Test upload/return, reload, denied/deleted images
+and retained settings. Airtable's own uploader and outer chrome keep native styling.
+
 
 ---
 
@@ -671,6 +846,22 @@ edits, reload, access denial, mobile browser layout if selected, and optional
 realtime updates. Client-side success alone is not durable database readback.
 Use `docs/ACCEPTANCE.md`; document rollback for app and schema changes before release.
 
+## Optional Appearance asset storage
+
+Add owned image assets only when selected. Keep preset/scoped-color settings
+and stable object references plus fit/position/strength in per-user versioned
+preferences. Resolve authorized render URLs per session; never persist signed
+URLs or file bytes there. Upload/removal and preference editing need their own
+access checks. Avoid a public bucket merely to simplify background pictures.
+
+Supabase private buckets apply storage RLS and support authenticated downloads
+or time-limited signed URLs. Test ownership denial with another user for both
+file access and deletion. See [bucket access models](https://supabase.com/docs/guides/storage/buckets/fundamentals)
+and [storage access control](https://supabase.com/docs/guides/storage/security/access-control)
+(checked October 24, 2026). If choosing another asset store, verify equivalent
+ownership and URL-refresh behavior before implementing it. Do not provision
+additional paid services merely because pictures were requested.
+
 
 ---
 
@@ -743,7 +934,14 @@ evidence; a code diff alone is not a browser test.
 
 ## Appearance and persistence
 
-- [ ] Light/dark cover previews affect the whole theme; Save persists and Cancel restores.
+- [ ] Light/dark preset previews affect the whole theme; Save persists and Cancel restores.
+- [ ] Selected custom colors cover desk, cover, paper/rules, cards, actions, heading strips, folders and independent drawer/settings surfaces; per-tab colors stay separate.
+- [ ] Every foreground matches its actual fill, including typed Journal text, calendar dates/dots, task headers, disabled controls, habit cells and native date-picker icons. Test extreme mixed light/dark palettes visually as well as with accessibility tools.
+- [ ] Decorative chrome compacts without shrinking approved reading sizes. Ordinary long titles fit; exceptional titles, long tab lists and saved compact widgets remain usable with fixed actions.
+- [ ] Selected personal pictures upload through a supported authorized library; the appearance draft survives leaving/returning from a native uploader.
+- [ ] Cover/background/paper/panel fit, position and strength preview correctly; opaque reading plates preserve text contrast and Calm hides images without deleting them.
+- [ ] Backend settings contain stable owned asset references and display options, never file bytes or expiring URLs. Fresh-session, expired, denied and removed-image cases resolve current access or show the preset.
+- [ ] Undo, scoped/all appearance resets, save failures and observed concurrent changes retain unrelated settings and uploads; unsupported newer appearance versions are view-only.
 - [ ] Calm, density, mode and per-user layouts survive reload without crossing users.
 - [ ] Theme, layout, tabs and notebook settings read back from backend preference records and survive a fresh browser session; browser storage alone is insufficient.
 - [ ] A previous-version configuration upgrades and reloads without resetting custom tab IDs/order, covers, notebook filters or existing values.
@@ -854,48 +1052,352 @@ report, unresolved retention list, cutover steps, rollback plan, and owner sign-
   "title": "Trapper Keeper build preferences",
   "type": "object",
   "additionalProperties": false,
-  "required": ["version", "appName", "platform", "devices", "modes", "showAll", "modules", "organization", "customTabs", "appearance", "privacy", "tasks", "habits", "locale", "dataStart", "hosting"],
+  "required": [
+    "version",
+    "appName",
+    "platform",
+    "devices",
+    "modes",
+    "showAll",
+    "modules",
+    "organization",
+    "customTabs",
+    "appearance",
+    "privacy",
+    "tasks",
+    "habits",
+    "locale",
+    "dataStart",
+    "hosting"
+  ],
   "properties": {
-    "version": {"type": "integer", "enum": [1]},
-    "appName": {"type": "string", "minLength": 1},
-    "platform": {"type": "string", "enum": ["airtable", "cloudflare-supabase", "other", "undecided"]},
-    "platformNotes": {"type": "string"},
-    "devices": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "enum": ["desktop-web", "mobile-web", "native-mobile"]}},
-    "modes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "enum": ["work", "life"]}},
-    "showAll": {"type": "boolean"},
-    "modeLabels": {"type": "object", "additionalProperties": false, "properties": {"work": {"type": "string", "minLength": 1}, "life": {"type": "string", "minLength": 1}, "all": {"type": "string", "minLength": 1}}},
-    "modules": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "enum": ["tasks", "action-queue", "projects", "resources", "habits", "journal", "fitness", "media", "nutrition"]}},
-    "organization": {"type": "string", "enum": ["para", "lists", "custom"]},
-    "customTabs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-    "appearance": {"type": "object", "additionalProperties": false, "required": ["theme", "darkTheme", "calm", "density", "rearrange", "resize"], "properties": {
-      "theme": {"type": "string", "minLength": 1}, "darkTheme": {"type": "string"},
-      "calm": {"type": "boolean"}, "density": {"type": "string", "enum": ["comfortable", "compact"]},
-      "rearrange": {"type": "boolean"}, "resize": {"type": "boolean"}
-    }},
-    "privacy": {"type": "object", "additionalProperties": false, "required": ["use", "personalDefault", "sharedWork"], "properties": {
-      "use": {"type": "string", "enum": ["solo", "shared"]},
-      "personalDefault": {"type": "string", "enum": ["private"]}, "sharedWork": {"type": "boolean"}
-    }},
-    "tasks": {"type": "object", "additionalProperties": false, "required": ["statuses", "reopen", "recurrence"], "properties": {
-      "statuses": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
-      "reopen": {"type": "string", "enum": ["clear-current-completion", "preserve-event-history"]},
-      "recurrence": {"type": "string", "enum": ["off", "new-occurrence-on-completion", "advance-instance"]}
-    }},
-    "habits": {"type": "object", "additionalProperties": false, "required": ["tracking", "schedule", "skipPolicy", "showStreaks"], "properties": {
-      "tracking": {"type": "string", "enum": ["disabled", "dated-checkins"]},
-      "schedule": {"type": "string", "enum": ["off", "daily", "selected-weekdays", "weekly-target", "custom"]},
-      "skipPolicy": {"type": "string", "enum": ["not-applicable", "breaks-streak", "neutral", "undecided"]},
-      "showStreaks": {"type": "boolean"}
-    }},
-    "locale": {"type": "object", "additionalProperties": false, "required": ["timeZone", "dateLocale", "weekStart"], "properties": {
-      "timeZone": {"type": "string", "minLength": 1}, "dateLocale": {"type": "string", "minLength": 2},
-      "weekStart": {"type": "string", "enum": ["monday", "sunday"]}
-    }},
-    "dataStart": {"type": "string", "enum": ["greenfield", "migration-plan"]},
-    "hosting": {"type": "object", "additionalProperties": false, "required": ["preview", "publicDeploymentAuthorized", "paidProvisioningAuthorized"], "properties": {
-      "preview": {"type": "string", "enum": ["native-platform", "remote-preview", "user-approved-environment", "undecided"]},
-      "publicDeploymentAuthorized": {"type": "boolean"}, "paidProvisioningAuthorized": {"type": "boolean"}
-    }}
+    "version": {
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "appName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "string",
+      "enum": [
+        "airtable",
+        "cloudflare-supabase",
+        "other",
+        "undecided"
+      ]
+    },
+    "platformNotes": {
+      "type": "string"
+    },
+    "devices": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "desktop-web",
+          "mobile-web",
+          "native-mobile"
+        ]
+      }
+    },
+    "modes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "work",
+          "life"
+        ]
+      }
+    },
+    "showAll": {
+      "type": "boolean"
+    },
+    "modeLabels": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "work": {
+          "type": "string",
+          "minLength": 1
+        },
+        "life": {
+          "type": "string",
+          "minLength": 1
+        },
+        "all": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "modules": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "tasks",
+          "action-queue",
+          "projects",
+          "resources",
+          "habits",
+          "journal",
+          "fitness",
+          "media",
+          "nutrition"
+        ]
+      }
+    },
+    "organization": {
+      "type": "string",
+      "enum": [
+        "para",
+        "lists",
+        "custom"
+      ]
+    },
+    "customTabs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "appearance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "theme",
+        "darkTheme",
+        "calm",
+        "density",
+        "rearrange",
+        "resize"
+      ],
+      "properties": {
+        "theme": {
+          "type": "string",
+          "minLength": 1
+        },
+        "darkTheme": {
+          "type": "string"
+        },
+        "calm": {
+          "type": "boolean"
+        },
+        "density": {
+          "type": "string",
+          "enum": [
+            "comfortable",
+            "compact"
+          ]
+        },
+        "rearrange": {
+          "type": "boolean"
+        },
+        "resize": {
+          "type": "boolean"
+        },
+        "customColors": {
+          "type": "boolean"
+        },
+        "independentPanelColors": {
+          "type": "boolean"
+        },
+        "personalImages": {
+          "type": "boolean"
+        },
+        "imageDestinations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "cover",
+              "canvas",
+              "paper",
+              "panels"
+            ]
+          }
+        },
+        "preserveTypeSizes": {
+          "type": "boolean"
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "use",
+        "personalDefault",
+        "sharedWork"
+      ],
+      "properties": {
+        "use": {
+          "type": "string",
+          "enum": [
+            "solo",
+            "shared"
+          ]
+        },
+        "personalDefault": {
+          "type": "string",
+          "enum": [
+            "private"
+          ]
+        },
+        "sharedWork": {
+          "type": "boolean"
+        }
+      }
+    },
+    "tasks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "statuses",
+        "reopen",
+        "recurrence"
+      ],
+      "properties": {
+        "statuses": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "reopen": {
+          "type": "string",
+          "enum": [
+            "clear-current-completion",
+            "preserve-event-history"
+          ]
+        },
+        "recurrence": {
+          "type": "string",
+          "enum": [
+            "off",
+            "new-occurrence-on-completion",
+            "advance-instance"
+          ]
+        }
+      }
+    },
+    "habits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tracking",
+        "schedule",
+        "skipPolicy",
+        "showStreaks"
+      ],
+      "properties": {
+        "tracking": {
+          "type": "string",
+          "enum": [
+            "disabled",
+            "dated-checkins"
+          ]
+        },
+        "schedule": {
+          "type": "string",
+          "enum": [
+            "off",
+            "daily",
+            "selected-weekdays",
+            "weekly-target",
+            "custom"
+          ]
+        },
+        "skipPolicy": {
+          "type": "string",
+          "enum": [
+            "not-applicable",
+            "breaks-streak",
+            "neutral",
+            "undecided"
+          ]
+        },
+        "showStreaks": {
+          "type": "boolean"
+        }
+      }
+    },
+    "locale": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timeZone",
+        "dateLocale",
+        "weekStart"
+      ],
+      "properties": {
+        "timeZone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dateLocale": {
+          "type": "string",
+          "minLength": 2
+        },
+        "weekStart": {
+          "type": "string",
+          "enum": [
+            "monday",
+            "sunday"
+          ]
+        }
+      }
+    },
+    "dataStart": {
+      "type": "string",
+      "enum": [
+        "greenfield",
+        "migration-plan"
+      ]
+    },
+    "hosting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preview",
+        "publicDeploymentAuthorized",
+        "paidProvisioningAuthorized"
+      ],
+      "properties": {
+        "preview": {
+          "type": "string",
+          "enum": [
+            "native-platform",
+            "remote-preview",
+            "user-approved-environment",
+            "undecided"
+          ]
+        },
+        "publicDeploymentAuthorized": {
+          "type": "boolean"
+        },
+        "paidProvisioningAuthorized": {
+          "type": "boolean"
+        }
+      }
+    }
   }
 }
 ```
@@ -910,19 +1412,74 @@ report, unresolved retention list, cutover steps, rollback plan, and owner sign-
   "version": 1,
   "appName": "My Trapper Keeper",
   "platform": "cloudflare-supabase",
-  "devices": ["desktop-web", "mobile-web"],
-  "modes": ["work", "life"],
+  "devices": [
+    "desktop-web",
+    "mobile-web"
+  ],
+  "modes": [
+    "work",
+    "life"
+  ],
   "showAll": true,
-  "modules": ["tasks", "action-queue", "projects", "resources", "habits"],
+  "modules": [
+    "tasks",
+    "action-queue",
+    "projects",
+    "resources",
+    "habits"
+  ],
   "organization": "para",
   "customTabs": [],
-  "appearance": {"theme": "ocean", "darkTheme": "galaxy", "calm": false, "density": "comfortable", "rearrange": true, "resize": true},
-  "privacy": {"use": "solo", "personalDefault": "private", "sharedWork": false},
-  "tasks": {"statuses": ["To do", "In progress", "Done", "On hold"], "reopen": "clear-current-completion", "recurrence": "off"},
-  "habits": {"tracking": "dated-checkins", "schedule": "daily", "skipPolicy": "neutral", "showStreaks": false},
-  "locale": {"timeZone": "UTC", "dateLocale": "en-US", "weekStart": "monday"},
+  "appearance": {
+    "theme": "ocean",
+    "darkTheme": "galaxy",
+    "calm": false,
+    "density": "comfortable",
+    "rearrange": true,
+    "resize": true,
+    "customColors": true,
+    "independentPanelColors": true,
+    "personalImages": true,
+    "imageDestinations": [
+      "cover",
+      "canvas",
+      "paper",
+      "panels"
+    ],
+    "preserveTypeSizes": true
+  },
+  "privacy": {
+    "use": "solo",
+    "personalDefault": "private",
+    "sharedWork": false
+  },
+  "tasks": {
+    "statuses": [
+      "To do",
+      "In progress",
+      "Done",
+      "On hold"
+    ],
+    "reopen": "clear-current-completion",
+    "recurrence": "off"
+  },
+  "habits": {
+    "tracking": "dated-checkins",
+    "schedule": "daily",
+    "skipPolicy": "neutral",
+    "showStreaks": false
+  },
+  "locale": {
+    "timeZone": "UTC",
+    "dateLocale": "en-US",
+    "weekStart": "monday"
+  },
   "dataStart": "greenfield",
-  "hosting": {"preview": "remote-preview", "publicDeploymentAuthorized": false, "paidProvisioningAuthorized": false}
+  "hosting": {
+    "preview": "remote-preview",
+    "publicDeploymentAuthorized": false,
+    "paidProvisioningAuthorized": false
+  }
 }
 ```
 
@@ -962,7 +1519,7 @@ flowchart LR
   Mode --> U[All authorized records]
   W --> Daily[Daily task pockets]
   Home --> Tools[Home + Settings group]
-  Tools --> Config[Cover - layout - tabs - notebook filters]
+  Tools --> Config[Appearance - layout - tabs - notebook filters]
   Mode --> Tabs[All enabled tabs on binder edge]
   Tabs --> Todo[Side To-do list]
   Todo --> TaskDetail[Useful editable task drawer]
@@ -991,6 +1548,8 @@ flowchart LR
 ```mermaid
 erDiagram
   USER ||--o{ PREFERENCE : owns
+  USER ||--o{ APPEARANCE_ASSET : owns
+  PREFERENCE }o--o{ APPEARANCE_ASSET : references
   USER ||--o{ TASK : owns
   AREA ||--o{ PROJECT : contains
   PROJECT o|--o{ TASK : groups
@@ -1017,6 +1576,7 @@ erDiagram
     string versioned_layout
     string section_order
     string notebook_filters_and_covers
+    string appearance_colors_and_asset_options
   }
   HABIT_CHECKIN {
     string habit_local_date UK
@@ -1115,6 +1675,11 @@ flowchart TB
   Secrets[Privileged secrets remain server-side] -.-> CF
   Auth[All views obey authenticated permissions] -.-> Contract
   Auth -.-> Config
+  Contract --> Assets[Authorized native or managed asset library]
+  Assets --> IDs[Store asset IDs and display options]
+  IDs --> Store
+  Assets --> Resolve[Resolve current-user image URL at render time]
+  Resolve --> UI
 ```
 
 
@@ -1136,4 +1701,33 @@ flowchart TD
   Cutover --> Verify[Provider readback and user acceptance]
   Verify --> Rollback[Keep rollback map and retention plan]
   Rollback --> Retire[Retire only confirmed redundant dependencies]
+```
+
+
+## Workflow: 08-appearance
+
+```mermaid
+flowchart TD
+  Settings[Settings - Appearance] --> Draft[Open draft from owned saved configuration]
+  Draft --> Presets[Choose coordinated preset]
+  Draft --> Colors[Adjust semantic colors and panel surfaces]
+  Draft --> Images[Choose picture destination]
+  Images --> Library[Authorized native or managed image library]
+  Library --> Identity[Stable owned asset reference]
+  Identity --> Options[Fit - position - strength]
+  Presets --> Preview[Live binder - drawer - settings preview]
+  Colors --> Preview
+  Options --> Preview
+  Preview --> Check{Readable actual surfaces?}
+  Check -->|Repair| Colors
+  Check -->|Save| Revision{Current revision and permissions?}
+  Revision -->|Conflict or error| Keep[Keep draft with actionable guidance]
+  Keep --> Draft
+  Revision -->|Allowed| Store[Patch Appearance only - preserve siblings]
+  Store --> Reload[Fresh session resolves current authorized image URLs]
+  Reload --> Missing{Asset available?}
+  Missing -->|Yes| Render[Render picture behind opaque reading plates]
+  Missing -->|No| Fallback[Show preset - preserve saved reference]
+  Draft --> Cancel[Cancel restores saved appearance]
+  Preview --> Calm[Calm hides pictures without deleting them]
 ```

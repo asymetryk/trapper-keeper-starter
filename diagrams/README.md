@@ -13,6 +13,7 @@ intent; the chosen platform adapter must supply its actual security/runtime mode
 | Evidence-based habits | [Mermaid](05-habit-checkins.mmd) | [SVG](05-habit-checkins.svg) |
 | Platform adapter architecture | [Mermaid](06-architecture.mmd) | [SVG](06-architecture.svg) |
 | Optional migration | [Mermaid](07-optional-migration.mmd) | [SVG](07-optional-migration.svg) |
+| Appearance and owned pictures | [Mermaid](08-appearance.mmd) | [SVG](08-appearance.svg) |
 
 Navigation includes every enabled edge tab, the To-do task drawer, shared journal
 date pages, Today's habit checklist/monthly history and the current media shelf.
